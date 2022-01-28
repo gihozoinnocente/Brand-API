@@ -15,3 +15,17 @@ export const getOneArticleService = async (id) => {
     const article = await Article.findOne({ _id: id })
     return article
 }
+
+export const deleteOneArticleService = async (id) => {
+    const article = await Article.deleteOne({ _id: id })
+    return article
+    
+}
+export const updateOneArticleService = async (id) => {
+    const article = await Article.updateOne({ _id: id })
+    return article
+
+}
+
+
+
