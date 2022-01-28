@@ -8,7 +8,8 @@
   "scripts": {
     "build": "babel src -d dist",
     "start": "npm run build && better-npm-run prod",
-    "dev": "better-npm-run dev",
+  
+    "dev": "better-npm-run --experimental-modules --es-module-specifier-resolution=node dev",
     "test": "better-npm-run test"
   },
   "betterScripts":{

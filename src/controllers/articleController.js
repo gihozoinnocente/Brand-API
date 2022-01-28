@@ -1,5 +1,8 @@
-import { createArticleService, getAllArticlesService, getOneArticleService } from "../services/articleServices.js"
-export class ArticleController {
+import { createArticleService, getAllArticlesService, getOneArticleService,deleteOneArticleService, updateOneArticleService} from "../services/articleServices.js"
+
+
+class ArticleController {
+    //201 create,500 servor error 
     async createArticle(req, res, next) {
         try {
             const data = {
@@ -16,6 +19,7 @@ export class ArticleController {
         }
     }
     async getAllArticles(req, res, next) {
+        console.log("error");
         try {
             const articles = await getAllArticlesService()
             res.status(200).json({ status: 200, message: "These are all the articles", data: articles })
@@ -31,6 +35,23 @@ export class ArticleController {
             console.log(error)
         }
     }
-    updateArticle(req, res, next) { }
-    deleteArticle(req, res, next) { }
+    async updateArticle(req, res, next) {
+        try {
+            const article = await updateOneArticleService(req.params.id)
+            res.status(200).json({ status: 200, message: "article retieved successfully", data: article })
+        } catch (error) {
+            console.log(error)
+        }
+
+     }
+    async deleteArticle(req, res, next) { 
+        try {
+            const article = await deleteOneArticleService(req.params.id)
+            res.status(200).json({ status: 200, message: "article retieved successfully", data: article })
+        } catch (error) {
+            console.log(error)
+        }
+    }
 }
+
+export default ArticleController;
