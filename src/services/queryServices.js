@@ -15,3 +15,7 @@ export const getOneQueryService = async (id) => {
     const query = await Query.findOne({ _id: id })
     return query
 }
+export const deleteOneQueryService = async (id) => {
+    const query = await Query.deleteOne({ _id: id })
+    return query
+}
