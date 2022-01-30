@@ -19,11 +19,14 @@ class ArticleController {
         }
     }
     async getAllArticles(req, res, next) {
-        console.log("error");
+
         try {
             const articles = await getAllArticlesService()
+            if(articles.length === 0){
+                return res.status(404).json({ status:404, message:"No Articles Found" })
+            } 
             res.status(200).json({ status: 200, message: "These are all the articles", data: articles })
-        } catch (error) {
+        } catch(error) {
             console.log(error)
         }
     }
@@ -37,8 +40,10 @@ class ArticleController {
     }
     async updateArticle(req, res, next) {
         try {
-            const article = await updateOneArticleService(req.params.id)
+            console.log("update")
+            const article = await updateOneArticleService(req.params.id,req.body)
             res.status(200).json({ status: 200, message: "article retieved successfully", data: article })
+        
         } catch (error) {
             console.log(error)
         }
@@ -48,6 +53,7 @@ class ArticleController {
         try {
             const article = await deleteOneArticleService(req.params.id)
             res.status(200).json({ status: 200, message: "article retieved successfully", data: article })
+            
         } catch (error) {
             console.log(error)
         }
