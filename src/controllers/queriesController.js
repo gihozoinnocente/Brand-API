@@ -1,4 +1,4 @@
-import { createQueryService, getAllQueryService, getOneQueryService} from "../services/queryServices.js"
+import { createQueryService, getAllQueryService, getOneQueryService, deleteOneQueryService} from "../services/queryServices.js"
 
 
 class QueryController {
@@ -36,23 +36,15 @@ class QueryController {
             console.log(error)
         }
     }
-    // async updateArticle(req, res, next) {
-    //     try {
-    //         const article = await updateOneArticleService(req.params.id)
-    //         res.status(200).json({ status: 200, message: "article retieved successfully", data: article })
-    //     } catch (error) {
-    //         console.log(error)
-    //     }
-
-    //  }
-    // async deleteArticle(req, res, next) { 
-    //     try {
-    //         const article = await deleteOneArticleService(req.params.id)
-    //         res.status(200).json({ status: 200, message: "article retieved successfully", data: article })
-    //     } catch (error) {
-    //         console.log(error)
-    //     }
-    // }
+  
+    async deleteQuery(req, res, next) { 
+        try {
+            const article = await deleteOneQueryService(req.params.id)
+            res.status(200).json({ status: 200, message: "article retieved successfully", data: article })
+        } catch (error) {
+            console.log(error)
+        }
+    }
 }
 
 export default QueryController;
