@@ -1,10 +1,17 @@
-import { createArticleService, getAllArticlesService, getOneArticleService,deleteOneArticleService, updateOneArticleService} from "../services/articleServices.js"
+import { createArticleService, 
+        getAllArticlesService, 
+        getOneArticleService,
+        deleteOneArticleService, 
+        updateOneArticleService} from "../services/articleServices.js"
 
+import { uploadFile } from "../helpers/imageUpload.js"
 
 class ArticleController {
     //201 create,500 servor error 
     async createArticle(req, res, next) {
         try {
+
+            req.body.image = await uploadFile(req.body)
             const data = {
                 title: req.body.title,
                 content: req.body.content,
