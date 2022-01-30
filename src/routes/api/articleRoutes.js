@@ -14,7 +14,7 @@ const articleControllers = new ArticleController()
 route.post('/', uploads.single('image'), articleControllers.createArticle)
 route.get('/', articleControllers.getAllArticles);
 route.get('/:id', articleControllers.getArticle);
-route.put('/:id', uploads.single('image'), articleControllers.updateArticle)
+//route.put('/:id', uploads.single('image'), articleControllers.updateArticle)
 route.delete('/:id',articleControllers.deleteArticle);
 route.patch('/:id',articleControllers.updateArticle);
 
