@@ -21,8 +21,8 @@ export const deleteOneArticleService = async (id) => {
     return article
     
 }
-export const updateOneArticleService = async (id) => {
-    const article = await Article.updateOne({ _id: id })
+export const updateOneArticleService = async (id , body) => {
+    const article = await Article.updateOne({ _id: id }, body)
     return article
 
 }
