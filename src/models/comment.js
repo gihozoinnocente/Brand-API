@@ -1,18 +1,11 @@
 import mongoose from "mongoose"
-
-const opts = {
-    timestamps: {
-        createdAt: 'created_at',
-        updatedAt: 'updated_at'
+const schema = mongoose.Schema({
+    commenter: String,
+    comment: String,
+    create_at: {
+        type: Date,
+        default: Date.now()
     }
-};
-const schema = mongoose.Schema(
-    {
-        articleId: String,
-        name: String,
-        comment: String,
-    },
-    opts
-)
+})
 
 export default mongoose.model("Comment", schema)

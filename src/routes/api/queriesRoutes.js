@@ -1,13 +1,13 @@
-import express from 'express';
-import   QueryController from './../../controllers/queriesController.js'
+import express from 'express'
+import { QueryController } from './../../controllers/queriesController.js'
+import { authenticate } from '../../middlewares/authenticate.js';
+import { queryValidation } from '../../validations/queryValidation/query.validation.js';
 
-
-const route = express.Router();
+const router = express.Router()
 const queryControllers = new QueryController()
-route.post('/', queryControllers.createQuery);
-route.get('/', queryControllers.getAllQuery);
-route.get('/:id', queryControllers.getQuery);
-route.delete('/:id', queryControllers.deleteQuery);
+router.post('/',queryValidation, queryControllers.createQuery)
+router.get('/',authenticate, queryControllers.getAllQueries)
+router.get('/:id', authenticate,queryControllers.getQuery)
+router.delete('/:id',authenticate, queryControllers.deleteQuery)
 
-
-export default route;
+export default router

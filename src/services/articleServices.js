@@ -16,16 +16,18 @@ export const getOneArticleService = async (id) => {
     return article
 }
 
-export const deleteOneArticleService = async (id) => {
-    const article = await Article.deleteOne({ _id: id })
-    return article
+export const updateArticleService =async (id,articleUpdate) =>{
+    const updatedArticle = await Article.findOneAndUpdate({ _id: id }, articleUpdate, { new: true });
+    return updatedArticle
     
 }
-export const updateOneArticleService = async (id , body) => {
-    const article = await Article.updateOne({ _id: id }, body)
-    return article
 
+export const deleteArticleService =async (id) =>{
+    const deletedArticle = await Article.findByIdAndDelete(id)
+    if(deletedArticle){
+        return "Article deleted successfully"
+    } else{
+        return "Article does not exists"
+    }
+    
 }
-
-
-

@@ -6,7 +6,7 @@ export const createQueryService = async (data) => {
     return query
 }
 
-export const getAllQueryService = async () => {
+export const getAllQueriesService = async () => {
     const queries = await Query.find()
     return queries
 }
@@ -15,7 +15,13 @@ export const getOneQueryService = async (id) => {
     const query = await Query.findOne({ _id: id })
     return query
 }
-export const deleteOneQueryService = async (id) => {
-    const query = await Query.deleteOne({ _id: id })
-    return query
+
+export const deleteQueryService =async (id) =>{
+    const deletedQuery = await Query.findByIdAndDelete(id)
+    if(deletedQuery){
+        return "Query deleted successfully"
+    } else{
+        return "Query does not exists"
+    }
+    
 }

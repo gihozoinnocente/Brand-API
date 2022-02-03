@@ -1,10 +1,10 @@
-import express from 'express'
-import { CommentControllers } from '../../controllers/commentControllers.js'
-import { commentValidation } from '../../validations/commentValidation/comment.validation.js'
+import  express  from "express";
+
+import { CommentController } from './../../controllers/commentsController.js'
 
 const route = express.Router()
-const commentsController = new CommentControllers()
-route.post('/:articleid', commentValidation, commentsController.addComment)
-route.get('/:articleid', commentsController.getComments)
+const commentsControllers = new CommentController()
+route.post('/:articleId', commentsControllers.createComment)
+route.get('/:articleId', commentsControllers.getAllArticleComments)
 
 export default route

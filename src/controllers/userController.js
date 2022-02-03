@@ -1,35 +1,34 @@
-import  { uploadFile } from "../helpers/imageUpload.js"  
+import { uploadFile } from "../helpers/fileUpload.js"
 import { generateToken } from "../helpers/jwtFunctions.js"
 import { comparePassword, hashPassword } from "../helpers/passwordSecurity.js"
-import { userExist, createUser } from "../services/userServices.js"
+import { userExist, createUser, updateUser } from "../services/userServices.js"
 
-class UserController {
-    async register(req, res, next) {
+export class UserControllers {
+    async register(req, res) {
         try {
-            
             const exist = await userExist(req.body.email)
             if (exist) {
-                res.status(409).json({ status: 409, message: "User with this email already exist. use different one" })
+                res.status(409).json({ status: 409, message: "User with this email already exist." })
             } else {
                 if (req.file) {
                     req.body.picture = await uploadFile(req)
                 } else {
-                    req.body.picture = 'https://www.winhelponline.com/blog/wp-content/uploads/2017/12/user.png'
+                    req.body.picture = 'https://www.pngkey.com/png/detail/115-1150152_default-profile-picture-avatar-png-green.png'
                 }
                 const user = {
                     username: req.body.username,
                     email: req.body.email,
                     password: await hashPassword(req.body.password),
-                    picture : req.body.picture,
+                    picture: req.body.picture,
                 }
                 const createdUser = await createUser(user)
                 res.status(201).json({ status: 201, message: "user registered successfully", user: createdUser })
             }
         } catch (error) {
-            console.log(error)
+            res.status(500).json({message: "Internal server error!"})
         }
     }
-    async login(req, res, next) {
+    async login(req, res) {
         try {
             const exist = await userExist(req.body.email)
             if (exist) {
@@ -44,9 +43,32 @@ class UserController {
             }
 
         } catch (error) {
-            console.log(error)
+            res.status(500).json({message: "Internal server error!"})
+        }
+    }
+
+    async updateUserInfo(req,res){
+        try {
+            
+                if (req.file) {
+                    req.body.picture = await uploadFile(req)
+                }
+                if(req.body.password){
+                    var hashP= hashPassword(req.body.password)
+                }
+                const user = {
+                    username: req.body.username,
+                    email: req.body.email,
+                    password: hashP,
+                    picture: req.body.picture,
+                }
+               
+                const updatedUser = await updateUser(req.params.email,user)
+                res.status(201).json({ status: 201, message: "user info updated successfully", user: updatedUser })
+
+            }
+         catch (error) {
+            res.status(500).json({message: "Internal server error!"})
         }
     }
 }
-
-export default UserController;
