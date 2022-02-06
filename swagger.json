@@ -217,12 +217,11 @@
           ],
           "parameters": [
             {
-              "name": "Authorization",
-              "in": "header",
-              "description": "Authorization",
+              "name": "id",
+              "in": "path",
+              "description": "id",
               "required": true
             },
-            
             {
               "name": "ArticleId",
               "in": "path",
