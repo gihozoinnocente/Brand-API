@@ -13,7 +13,7 @@
         "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
       }
     },
-    "host": "localhost:3000",
+    "host": "staging-ft-auth-validat-qg7m2y.herokuapp.com",
     "basePath": "/",
     "tags": [
       {
@@ -23,10 +23,6 @@
       {
         "name": "Article",
         "description": "Everything about article"
-      },
-      {
-        "name": "Queries",
-        "description": "Everything about Queries"
       }
       
     ],
@@ -150,7 +146,8 @@
             }
           }
         }
-      },"/api/v1/articles/{id}": {
+      },
+      "/api/v1/articles/{id}": {
         "get": {
           "tags": ["Articles"],
           "summary": "Get one article",
@@ -207,8 +204,50 @@
               "description": "Success"
             }
           }
+        },
+     
+
+        "delete": {
+          "tags": ["Articles"],
+          "summary": "Deletes an Article",
+          "description": "",
+          "operationId": "deleteArticle",
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "Authorization",
+              "in": "header",
+              "description": "Authorization",
+              "required": true
+            },
+            
+            {
+              "name": "ArticleId",
+              "in": "path",
+              "description": "Article id to delete",
+              "required": true,
+              "type": "integer",
+              "format": "int64"
+            }
+          ],
+          "responses": {
+            "400": {
+              "description": "Invalid ID supplied"
+            },
+            "404": {
+              "description": "Article not found"
+            }
+          }
         }
       },
+
+      
+
+
+
+
       "/api/v1/queries": {
         "get": {
           "tags": ["Queries"],
