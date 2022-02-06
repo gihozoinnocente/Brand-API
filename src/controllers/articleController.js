@@ -1,6 +1,7 @@
 import { createArticleService, getAllArticlesService, getOneArticleService, updateArticleService, deleteArticleService }
 from "../services/articleServices.js"
 import {uploadFile} from "../helpers/fileUpload.js"
+
 export class ArticleController {
     async createArticle(req, res) {
         try {
@@ -21,6 +22,10 @@ export class ArticleController {
     async getAllArticles(req, res) {
         try {
             const articles = await getAllArticlesService()
+            if( articles.length === 0){
+                res.status(200).json({ status: 200, message: "These are no  articles found" })
+            }
+
             res.status(200).json({ status: 200, message: "These are all the articles", data: articles })
         } catch (error) {
             res.status(500).json({message: "Internal server error!"})
@@ -28,6 +33,7 @@ export class ArticleController {
     }
     async getArticle(req, res) {
         try {
+
             const article = await getOneArticleService(req.params.id)
             res.status(200).json({ status: 200, message: "article found", data: article })
         } catch (error) {

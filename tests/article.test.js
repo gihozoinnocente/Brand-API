@@ -6,7 +6,7 @@ import 'dotenv/config';
 chai.use(chaiHttp)
 describe("ARTICLE END-POINT TESTING", () => {
     it("Should retrieve the articles", (done) => {
-        chai.request(app).get("/api/v1/articles/")
+        chai.request(app).get("/api/v1/article/")
         .send()
         .end((err,res)=>{
             expect(res).to.have.property("status")

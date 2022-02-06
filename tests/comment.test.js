@@ -18,7 +18,7 @@ describe("COMMENT END-POINT TESTING", () => {
     })
 
     it("Should not retrieve the comments",  (done) => {
-        chai.request(app).get("/api/v1/commentss/")
+        chai.request(app).get("/api/v1/comments/")
         .send()
         .end((err,res)=>{
         expect(res).to.have.status([404])
