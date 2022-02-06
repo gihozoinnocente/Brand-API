@@ -44,6 +44,9 @@
   },
   "homepage": "",
   "dependencies": {
+    "@babel/core": "^7.16.12",
+    "@babel/node": "^7.16.8",
+    "@babel/preset-env": "^7.16.11",
     "@babel/cli": "^7.17.0",
     "@babel/plugin-proposal-class-properties": "^7.16.7",
     "@babel/plugin-transform-runtime": "^7.17.0",
@@ -60,9 +63,7 @@
     "validator": "^13.7.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.16.12",
-    "@babel/node": "^7.16.8",
-    "@babel/preset-env": "^7.16.11",
+   
     "chai": "^4.3.6",
     "chai-http": "^4.3.0",
     "coveralls": "^3.1.1",
