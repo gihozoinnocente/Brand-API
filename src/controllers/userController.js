@@ -39,7 +39,7 @@ export class UserControllers {
                 const token = await generateToken({ id: exist._id })
                 res.status(200).json({ status: 200, message: "Logged in successfully", accessToken: token })
             } else {
-                res.status(403).json({ status: 403, message: "Invalid credentials" })
+                res.status(404).json({ status: 404, message: "Email not found" })
             }
 
         } catch (error) {

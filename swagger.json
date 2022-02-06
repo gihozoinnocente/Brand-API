@@ -1,0 +1,386 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "description":"THIS IS MY BRAND API ",
+      "version": "1.0.0",
+      "title": "BRAND-API",
+      "termsOfService": "http://swagger.io/terms/",
+      "contact": {
+        "email": "igihozoinnocente@gmail.com"
+      },
+      "license": {
+        "name": "Apache 2.0",
+        "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+      }
+    },
+    "host": "localhost:3000",
+    "basePath": "/",
+    "tags": [
+      {
+        "name": "User",
+        "description": "Everything about user"
+      },
+      {
+        "name": "Article",
+        "description": "Everything about article"
+      },
+      {
+        "name": "Queries",
+        "description": "Everything about Queries"
+      }
+      
+    ],
+    "schemes": [
+      "https",
+      "http"
+    ],
+    "paths": {
+      "/api/v1/users/register": {
+        "post": {
+          "tags": [
+            "User"
+          ],
+          "summary": "Create user",
+          "description": "This can only be done by a new user.",
+          "operationId": "createUser",
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "body",
+              "description": "Created user object",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/User"
+              }
+            }
+          ],
+          "responses": {
+            "default": {
+              "description": "successful operation"
+            }
+          }
+        }
+      },
+    
+      "/api/v1/users/login": {
+        "post": {
+          "tags": [
+            "User"
+          ],
+          "summary": "Logs user into the system",
+          "description": "",
+          "operationId": "loginUser",
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+                "in": "body",
+                "name": "body",
+                "description": "Login a user",
+                "required": true,
+                "schema": {
+                  "$ref": "#/definitions/login"
+                }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "successful operation",
+              "schema": {
+                "type": "string"
+              }
+            },
+            "400": {
+              "description": "Invalid username/password supplied"
+            }
+          }
+        }
+      },
+      "/api/v1/articles": {
+        "get": {
+          "tags": ["Articles"],
+          "summary": "Get all articles",
+          "description": "Get all articles",
+          "operationId": "getArticles",
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        },
+        "post": {
+          "tags": ["Articles"],
+          "summary": "Create article",
+          "description": "Create article",
+          "operationId": "postArticles",
+          "parameters": [
+            {
+              "name": "Authorization",
+              "in": "header",
+              "description": "Authorization",
+              "required": true
+            },
+            {
+              "name": "title",
+              "in": "formData",
+              "description": "title",
+              "required": true
+            },
+            {
+              "name": "content",
+              "in": "formData",
+              "description": "content",
+              "required": true
+            },
+            {
+              "name": "image",
+              "in": "formData",
+              "type": "file",
+              "description": "image",
+              "required": true
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },"/api/v1/articles/{id}": {
+        "get": {
+          "tags": ["Articles"],
+          "summary": "Get one article",
+          "description": "Get one article",
+          "operationId": "getoneArticle",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "description": "id",
+              "required": true
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        },
+        "post": {
+          "tags": ["Articles"],
+          "summary": "Create article",
+          "description": "Create article",
+          "operationId": "postArticles",
+          "parameters": [
+            {
+              "name": "Authorization",
+              "in": "header",
+              "description": "Authorization",
+              "required": true
+            },
+            {
+              "name": "title",
+              "in": "formData",
+              "description": "title",
+              "required": true
+            },
+            {
+              "name": "content",
+              "in": "formData",
+              "description": "content",
+              "required": true
+            },
+            {
+              "name": "image",
+              "in": "formData",
+              "type": "file",
+              "description": "image",
+              "required": true
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/v1/queries": {
+        "get": {
+          "tags": ["Queries"],
+          "summary": "Get all Queries",
+          "description": "Get all Queries",
+          "operationId": "getQueries",
+          "parameters": [
+            {
+              "name": "Authorization",
+              "in": "header",
+              "description": "Authorization",
+              "required": true
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        },
+        "post": {
+          "tags": ["Queries"],
+          "summary": "Create query",
+          "description": "Create query",
+          "operationId": "postQueries",
+          "parameters": [
+            {
+              "name": "senderName",
+              "in": "formData",
+              "description": "senderName",
+              "required": true
+            },
+            {
+              "name": "email",
+              "in": "formData",
+              "description": "email",
+              "required": true
+            },
+            {
+              "name": "message",
+              "in": "formData",
+              "description": "message",
+              "required": true
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+
+      "/api/v1/comments/{id}": {
+        "get": {
+          "tags": ["Comments"],
+          "summary": "Get all Comments",
+          "description": "Get all Comments",
+          "operationId": "getComments",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "description": "id",
+              "required": true
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        },
+        "post": {
+          "tags": ["Comments"],
+          "summary": "Create Comments",
+          "description": "Create Comments",
+          "operationId": "postComments",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "description": "id",
+              "required": true
+            },
+            {
+              "name": "name",
+              "in": "formData",
+              "description": "name",
+              "required": true
+            },
+            {
+              "name": "comment",
+              "in": "formData",
+              "description": "comment",
+              "required": true
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      }
+     
+
+
+      
+      
+     
+    },
+    "securityDefinitions": {
+      "petstore_auth": {
+        "type": "oauth2",
+        "authorizationUrl": "http://petstore.swagger.io/oauth/dialog",
+        "flow": "implicit",
+        "scopes": {
+          "write:pets": "modify pets in your account",
+          "read:pets": "read your pets"
+        }
+      },
+      "api_key": {
+        "type": "apiKey",
+        "name": "api_key",
+        "in": "header"
+      }
+    },
+    "definitions": {
+      "User": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        }
+      },
+      "login": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        }
+      },
+      "Article": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "content": {
+            "type": "string"
+          },
+          "image":{
+              "type":"string"
+          }
+        }
+      }
+      
+    },
+    "externalDocs": {
+      "description": "Find out more about Swagger",
+      "url": "http://swagger.io"
+    }
+  }
