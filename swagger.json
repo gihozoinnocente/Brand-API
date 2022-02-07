@@ -53,7 +53,7 @@
         }
       },
     
-      "/api/v1/users/login": {
+      "/api/v1/users/Login": {
         "post": {
           "tags": ["Users"],
           "summary": "Login",
@@ -349,7 +349,7 @@
           }
         }
       },
-      "login": {
+      "Login": {
         "type": "object",
         "properties": {
           "email": {
