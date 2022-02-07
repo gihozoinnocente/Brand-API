@@ -64,11 +64,11 @@
       "/api/v1/users/login": {
         "post": {
           "tags": [
-            "User"
+            "Login"
           ],
           "summary": "Logs user into the system",
           "description": "",
-          "operationId": "loginUser",
+          "operationId": "login",
           "produces": [
             "application/json"
           ],
