@@ -1,18 +1,13 @@
-
-
 {
-
   "swagger": "2.0",
-
-  "info": {
-
-    "title": "API",
-
-    "description": "API",
-
-    "version": "1.0.0"
-
-  },
+    "info": {
+      "description":"THIS IS MY BRAND API ",
+      "version": "1.0.0",
+      "title": "BRAND-API",
+      "contact": {
+        "email": "igihozoinnocente@gmail.com"
+      }
+    },
 
   "servers": [
 
