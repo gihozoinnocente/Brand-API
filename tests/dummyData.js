@@ -1,12 +1,12 @@
 export const validUser={
-    email:"ihonore12@gmail.com",
-    password:"Password1!"
+    email:"igihozoinnocente@gmail.com",
+    password:"Password!"
 }
 
 export const userData={
-    username:"ihonore",
-    email:"ihonore12@gmail.com",
-    password:"Password1!"
+    username:"Gihozo",
+    email:"igihozoinnocente@gmail.com",
+    password:"Password!"
 }
 
 export const article={
@@ -16,6 +16,6 @@ export const article={
 }
 
 export const comment={
-    commenter:"Honore",
+    commenter:"Gihozo",
     comment:"Check check"
 }
