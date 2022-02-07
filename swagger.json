@@ -7,13 +7,23 @@
       "termsOfService": "http://swagger.io/terms/",
       "contact": {
         "email": "igihozoinnocente@gmail.com"
-      },
-      "license": {
-        "name": "Apache 2.0",
-        "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
       }
     },
-    "host": "staging-ft-auth-validat-qg7m2y.herokuapp.com",
+    
+
+
+    "servers": [
+      {
+        "url": "http://localhost:3000",
+        "name": "DEV"
+      },
+      {
+        "url": "https://staging-ft-auth-validat-qg7m2y.herokuapp.com",
+        "name": "PROD"
+      }
+    ],
+
+
     "basePath": "/",
     "tags": [
       {
