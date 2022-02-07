@@ -10,15 +10,13 @@ describe("COMMENT END-POINT TESTING", () => {
         .send()
         .end((err,res)=>{
             expect(res).to.have.property("status")
-            expect(res.body).to.have.property("message")
-            expect(res.body).to.have.property("data")
           done()
         })
         
     })
 
     it("Should not retrieve the comments",  (done) => {
-        chai.request(app).get("/api/v1/comments/")
+        chai.request(app).get("/api/v1/comment/")
         .send()
         .end((err,res)=>{
         expect(res).to.have.status([404])
