@@ -9,7 +9,7 @@
         "email": "igihozoinnocente@gmail.com"
       }
     },
-    "host": "staging-ft-auth-validat-qg7m2y.herokuapp.com",
+    "host": "localhost:3000",
 
     "basePath": "/",
     "tags": [
@@ -53,20 +53,20 @@
         }
       },
     
-      "/api/v1/users/Login": {
+      "/api/v1/users/login": {
         "post": {
           "tags": ["Users"],
-          "summary": "Login",
-          "description": "Login",
+          "summary": "login",
+          "description": "login",
           "operationId": "postUsersLogin",
           "parameters": [
             {
               "name": "body",
               "in": "body",
-              "description": "Login",
+              "description": "login",
               "required": true,
               "schema": {
-                "$ref": "#/definitions/Login"
+                "$ref": "#/definitions/login"
               }
             }
           ],
@@ -349,7 +349,7 @@
           }
         }
       },
-      "Login": {
+      "login": {
         "type": "object",
         "properties": {
           "email": {
