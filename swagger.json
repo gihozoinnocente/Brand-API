@@ -31,31 +31,37 @@
 
   "paths": {
 
-    "/": {
-
-      "get": {
-
-        "tags": ["Home"],
-
-        "summary": "Home",
-
-        "description": "Home",
-
-        "operationId": "getHome",
-
-        "responses": {
-
-          "200": {
-
-            "description": "Success"
-
+    
+    "/api/v1/users/register": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Create user",
+        "description": "This can only be done by a new user.",
+        "operationId": "createUser",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Created user object",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
           }
-
+        ],
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          }
         }
-
       }
-
     },
+  
 
     "/api/v1/users/login": {
 
