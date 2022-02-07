@@ -4,12 +4,11 @@
       "description":"THIS IS MY BRAND API ",
       "version": "1.0.0",
       "title": "BRAND-API",
-      "termsOfService": "http://swagger.io/terms/",
       "contact": {
         "email": "igihozoinnocente@gmail.com"
       }
     },
-    "host": "localhost:3000",
+    "host": "staging-ft-auth-validat-qg7m2y.herokuapp.com",
 
     "basePath": "/",
     "tags": [
