@@ -19,12 +19,7 @@
       {
         "name": "User",
         "description": "Everything about user"
-      },
-      {
-        "name": "Article",
-        "description": "Everything about article"
       }
-      
     ],
     "schemes": [
       "https",
@@ -63,39 +58,30 @@
     
       "/api/v1/users/login": {
         "post": {
-          "tags": [
-            "Login"
-          ],
-          "summary": "Logs user into the system",
-          "description": "",
-          "operationId": "login",
-          "produces": [
-            "application/json"
-          ],
+          "tags": ["Users"],
+          "summary": "Login",
+          "description": "Login",
+          "operationId": "postUsersLogin",
           "parameters": [
             {
-                "in": "body",
-                "name": "body",
-                "description": "Login a user",
-                "required": true,
-                "schema": {
-                  "$ref": "#/definitions/login"
-                }
+              "name": "body",
+              "in": "body",
+              "description": "Login",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/Login"
+              }
             }
           ],
           "responses": {
             "200": {
-              "description": "successful operation",
-              "schema": {
-                "type": "string"
-              }
-            },
-            "400": {
-              "description": "Invalid username/password supplied"
+              "description": "Success"
             }
           }
         }
       },
+
+
       "/api/v1/articles": {
         "get": {
           "tags": ["Articles"],
