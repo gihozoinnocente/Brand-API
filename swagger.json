@@ -386,7 +386,8 @@
           }
         }
       },
-      "login": {
+
+      "Login": {
         "type": "object",
         "properties": {
           "email": {
@@ -397,6 +398,8 @@
           }
         }
       },
+
+     
       "Article": {
         "type": "object",
         "properties": {
