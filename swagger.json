@@ -9,20 +9,7 @@
         "email": "igihozoinnocente@gmail.com"
       }
     },
-    
-
-
-    "servers": [
-      {
-        "url": "http://localhost:3000",
-        "name": "DEV"
-      },
-      {
-        "url": "https://staging-ft-auth-validat-qg7m2y.herokuapp.com",
-        "name": "PROD"
-      }
-    ],
-
+    "host": "staging-ft-auth-validat-qg7m2y.herokuapp.com",
 
     "basePath": "/",
     "tags": [
@@ -238,10 +225,7 @@
         }
       },
 
-      
-
-
-
+    
 
       "/api/v1/queries": {
         "get": {
@@ -349,13 +333,7 @@
         }
       }
      
-
-
-      
-      
-     
     },
-    
     "definitions": {
       "User": {
         "type": "object",
@@ -371,8 +349,7 @@
           }
         }
       },
-
-      "Login": {
+      "login": {
         "type": "object",
         "properties": {
           "email": {
@@ -380,22 +357,6 @@
           },
           "password": {
             "type": "string"
-          }
-        }
-      },
-
-     
-      "Article": {
-        "type": "object",
-        "properties": {
-          "title": {
-            "type": "string"
-          },
-          "content": {
-            "type": "string"
-          },
-          "image":{
-              "type":"string"
           }
         }
       }
