@@ -349,7 +349,7 @@
 
             "description": "Authorization",
 
-            "required": true
+            "required": false
 
           },
 
@@ -373,7 +373,7 @@
 
             "description": "title",
 
-            "required": true
+            "required": false
 
           },
 
@@ -385,7 +385,7 @@
 
             "description": "content",
 
-            "required": true
+            "required": false
 
           },
 
@@ -399,7 +399,7 @@
 
             "description": "image",
 
-            "required": true
+            "required": false
 
           }
 
