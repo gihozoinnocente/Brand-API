@@ -158,12 +158,6 @@
           "produces": ["application/json"],
           "parameters": [
             {
-              "name": "Authorization",
-              "in": "header",
-              "description": "Authorization",
-              "required": true
-            },
-            {
               "name": "userEmail",
               "in": "path",
               "type": "string",
@@ -202,12 +196,6 @@
           "description": "Create an article",
           "operationId": "postArticles",
           "parameters": [
-            {
-              "name": "Authorization",
-              "in": "header",
-              "description": "Authorization",
-              "required": true
-            },
             {
               "name": "title",
               "in": "formData",
@@ -393,7 +381,8 @@
           "summary": "Get all queries",
           "description": "Get all queries",
           "operationId": "getQueries",
-          "parameters": [{
+          "parameters": 
+          [{
             "name": "Authorization",
             "in": "header",
             "description": "Authorization",
@@ -403,7 +392,12 @@
             "200": {
               "description": "All Queries retrieved successfuly!"
             }
-          }
+          }, "security": [
+            {
+              "Bearer": []
+            }
+          ]
+
         },
         "post": {
           "tags": ["Queries CRUD Operations"],
