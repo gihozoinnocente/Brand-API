@@ -28,7 +28,8 @@ describe("QUERY END-POINT TESTING", () => {
         
         .end((err,res)=>{
             token=res.body.accessToken;
-            //expect(res.body).to.have.property("message")
+            expect(res).to.have.status([403])
+            expect(res.body).to.have.property("message")
             //expect(res.body).to.have.property("accessToken")
           done()
         })
