@@ -27,7 +27,7 @@ describe("COMMENT END-POINT TESTING", () => {
         chai.request(app).post(`/api/v1/comments/${articleId}`)
         .send(comment)
         .end((err,res)=>{
-            //xpect(res).to.have.status([201])
+            expect(res).to.have.status([201])
           done()
         })
         
@@ -40,7 +40,7 @@ describe("COMMENT END-POINT TESTING", () => {
         .end((err,res)=>{
             expect(res).to.have.property("status")
             expect(res.body).to.have.property("message")
-            //expect(res.body).to.have.property("data")
+            expect(res.body).to.have.property("data")
           done()
         })
         

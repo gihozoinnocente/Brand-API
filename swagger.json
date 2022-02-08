@@ -1,13 +1,12 @@
 {
     "swagger": "2.0",
     "info": {
-      "title": "PORTFOLIO API",
+      "title": "MY BRAND API",
       "description": "A personal portfolio API",
       "version": "1.0.0",
       "contact": {
-        "name": "Honore IRADUKUNDA",
-        "email": "ihonore01@gmail.com",
-        "url": "ihonore.netlify.app" 
+        "name": "Gihozo Innocente",
+        "email": "igihozoinnocente@gmail.com"
       }
     },
     "schemes": ["http", "https"],
@@ -17,6 +16,13 @@
         "name": "DEV"
       }
     ],
+    "securityDefinitions": {
+      "Bearer": {
+        "type": "apiKey",
+        "name": "Authorization",
+        "in": "header"
+      }
+    },
     "paths": {
       "/": {
         "get": {
@@ -111,12 +117,7 @@
           "consumes": ["multipart/form-data"],
           "produces": ["application/json"],
           "parameters": [
-            {
-              "name": "Authorization",
-              "in": "header",
-              "description": "Authorization",
-              "required": true
-            },
+          
             {
               "name": "email",
               "in": "path",
@@ -143,7 +144,12 @@
             "404": {
               "description": "user you want to update does not exist"
             }
-          }
+          },
+          "security": [
+            {
+              "Bearer": []
+            }
+          ]
         },
         "delete": {
           "tags": ["User Register,Login and Profile information"],
@@ -171,7 +177,11 @@
             "404": {
               "description": "User account with that email not found"
             }
-          }
+          },"security": [
+            {
+              "Bearer": []
+            }
+          ]
         }
       },
       "/api/v1/articles": {
@@ -225,7 +235,12 @@
             "500": {
               "description": "Server error"
             }
-          }
+          },
+          "security": [
+            {
+              "Bearer": []
+            }
+          ]
         }
       },
       "/api/v1/articles/{articleId}": {
@@ -260,12 +275,6 @@
           "produces": ["application/json"],
           "parameters": [
             {
-              "name": "Authorization",
-              "in": "header",
-              "description": "Authorization",
-              "required": true
-            },
-            {
               "name": "articleId",
               "in": "path",
               "description": " Enter article ID in the path",
@@ -289,7 +298,12 @@
             "404": {
               "description": "article with that id not found"
             }
-          }
+          },
+          "security": [
+            {
+              "Bearer": []
+            }
+          ]
         },
         "delete": {
           "tags": ["Articles CRUD Operations"],
@@ -297,12 +311,6 @@
           "description": " ",
           "produces": ["application/json"],
           "parameters": [
-            {
-              "name": "Authorization",
-              "in": "header",
-              "description": "Authorization",
-              "required": true
-            },
             {
               "name": "articleId",
               "in": "path",
@@ -318,7 +326,12 @@
             "404": {
               "description": "Article not found"
             }
-          }
+          },
+          "security": [
+            {
+              "Bearer": []
+            }
+          ]
         }
       },
       "/api/v1/comments/{articleId}": {
@@ -426,12 +439,6 @@
           "produces": ["application/json"],
           "parameters": [
             {
-              "name": "Authorization",
-              "in": "header",
-              "description": "Authorization",
-              "required": true
-            },
-            {
               "name": "queryId",
               "in": "path",
               "description": " Enter a query ID",
@@ -446,7 +453,12 @@
             "404": {
               "description": "no query found with that ID"
             }
-          }
+          },
+          "security": [
+            {
+              "Bearer": []
+            }
+          ]
         },
         "delete": {
           "tags": ["Queries CRUD Operations"],
@@ -454,12 +466,6 @@
           "description": " ",
           "produces": ["application/json"],
           "parameters": [
-            {
-              "name": "Authorization",
-              "in": "header",
-              "description": "Authorization",
-              "required": true
-            },
             {
               "name": "queryId",
               "in": "path",
@@ -475,7 +481,12 @@
             "404": {
               "description": "Query not found"
             }
-          }
+          },
+          "security": [
+            {
+              "Bearer": []
+            }
+          ]
         }
       }
     
