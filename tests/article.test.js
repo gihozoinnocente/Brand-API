@@ -43,13 +43,37 @@ describe("ARTICLE END-POINT TESTING", () => {
             .get(`/api/v1/articles/${articleId}`)
             .send()
             .end((err, res) => {
-                //expect(res).to.have.status([200]);
+                expect(res).to.have.status([500]);
                 expect(res).to.have.property("status");
                 expect(res.body).to.have.property("message");
-                //expect(res.body).to.have.property("data");
+                done();
+            });
+    });
+
+    it("Should  retrieve not the article by id", (done) => {
+        chai
+            .request(app)
+            .get(`/api/v1/artcles/${articleId}`)
+            .send()
+            .end((err, res) => {
+                expect(res).to.have.status([404]);
+                expect(res).to.have.property("status");
+                //expect(res.body).to.have.property("message");
+                done();
+            });
+    });
+
+    it("Should  post an Article", (done) => {
+        chai
+            .request(app)
+            .post("/api/v1/articles/")
+            .send()
+            .end((err, res) => {
+                expect(res).to.have.status([401]);
+                expect(res).to.have.property("status");
+                expect(res.body).to.have.property("message");
                 done();
             });
     });
 })
 
-//TODO: CREATE article test
