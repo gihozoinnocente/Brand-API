@@ -4,6 +4,3 @@
 
 
 ![Coverage Status](https://coveralls.io/repos/github/gihozoinnocente/Brand-API/badge.svg)
-
-
-
