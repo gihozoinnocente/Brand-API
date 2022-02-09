@@ -145,7 +145,7 @@ describe("QUERY END-POINT TESTING", () => {
     it("Should not delete the query when wrong id is provided", (done) => {
         chai
             .request(app)
-            .delete(`/api/v1/queries/edf87354`)
+            .delete(`/api/v1/queries/ecgf87354`)
             .set('Authorization', `Bearer ${token}`)
             .send()
             .end((err, res) => {

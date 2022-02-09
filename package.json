@@ -34,13 +34,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ihonore/my-brand-api.git"
+    "url": ""
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {},
-  "homepage": "https://github.com/ihonore/my-brand-api#readme",
+  "homepage": "",
   "dependencies": {
     "@babel/cli": "^7.17.0",
     "@babel/plugin-proposal-class-properties": "^7.16.7",

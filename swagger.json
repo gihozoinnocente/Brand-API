@@ -111,7 +111,7 @@
       },
       "/api/v1/users/{userEmail}": {
         "patch": {
-          "tags": ["User Register,Login and Profile information"],
+          "tags": ["User Register and Login "],
           "summary": "This will update user profile information",
           "description": " ",
           "consumes": ["multipart/form-data"],
