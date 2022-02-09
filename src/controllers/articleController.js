@@ -20,6 +20,9 @@ export class ArticleController {
     async getAllArticles(req, res) {
         try {
             const articles = await getAllArticlesService()
+            if( articles.length === 0){
+                res.status(200).json({ status: 200, message: "These are no  articles found" })
+            }
             res.status(200).json({ status: 200, message: "These are all the articles", data: articles })
         } catch (error) {
             res.status(500).json({message: "Internal server error!"})
