@@ -12,6 +12,7 @@ export class CommentController {
             const comment = await createCommentService(req.params.articleId,data)
             res.status(201).json({ status: 201, message: "Comment created successfully", data: comment })
         } catch (error) {
+            console.log("post comment",error)
             res.status(500).json({message: "Internal server error!"})
         }
     }
