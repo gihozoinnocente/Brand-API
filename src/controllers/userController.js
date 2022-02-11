@@ -30,16 +30,19 @@ export class UserControllers {
     }
     
     async login(req, res, next) {
+        console.log(req.body)
         try {
             const exist = await userExist(req.body.email)
             if (exist) {
                 const valid = await comparePassword(req.body.password, exist.password)
                 if (!valid) {
+                    console.log('valid',valid)
                     res.status(403).json({ status: 403, message: "Invalid credentials" })
                 }
                 const token = await generateToken({ id: exist._id })
                 res.status(200).json({ status: 200, message: "Logged in successfully", accessToken: token })
             } else {
+                console.log('exist',exist)
                 res.status(403).json({ status: 403, message: "Invalid credentials" })
             }
 
