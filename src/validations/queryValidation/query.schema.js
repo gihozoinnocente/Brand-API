@@ -18,5 +18,8 @@ export const querySchema = joi.object({
         "string.empty": "The message is not allowed to be empty",
         "string.pattern.base": "Message must be below 1000 characters",
         "any.required": "Message is required"
-    })
+    }),
+    subject:joi.any(),
+    phonenumber:joi.any(),
+    location:joi.any()
 })
